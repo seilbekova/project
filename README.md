@@ -1,65 +1,94 @@
-Student Management System - README
+Vehicle Management System
 A. Project Overview
-Purpose: This project manages student academic records and course enrollments in a university system. It demonstrates object-oriented programming principles in Java.
+Purpose and Description
 
-Classes:
+This project is a Java console application that demonstrates the main concepts of Object-Oriented Programming (OOP).
+The system manages vehicles and drivers.
 
-Student - represents individual students with academic data
+Each vehicle can:
 
-course - manages course information and student enrollments
+start its engine
 
-Main - demonstrates functionality with sample data
+stop its engine
 
-Java Topics Used:
+display its information
 
-Object-oriented design (classes, objects)
+Drivers can have multiple vehicles assigned to them.
 
-Encapsulation (private fields with public getters/setters)
+OOP Concepts Used
 
-Arrays and loops
+Abstraction:
+The abstract class Vehicle defines common behavior for all vehicles.
 
-Conditional logic
+Inheritance:
+Car, Motorcycle, and Truck inherit from Vehicle.
 
-Constructors and method overloading
+Composition:
+A Driver contains a list of Vehicle objects.
 
-B. Class Descriptions
-Student Class
-The Student class models a university student with:
+Polymorphism:
+Vehicles are treated as Vehicle but behave differently.
 
-Personal information (name, ID, major)
+B. Class Hierarchy
+Superclass
 
-Academic records (GPA, credits completed)
+Vehicle (abstract class)
 
-Methods to update GPA and credits, check honors status
+Common fields: brand, year
 
-All fields are private with public getter/setter methods
+Abstract methods:
 
-Course Class
-The course class represents a university course with:
+startEngine()
 
-Course name and instructor
+stopEngine()
 
-Array of enrolled Student objects
+Concrete method:
 
-Methods to calculate average GPA and find the student with most credits
+displayInfo()
 
-Composition Relationship: The course class contains an array of Student objects, demonstrating composition. Each course "has-a" collection of students,
-but students exist independently of any single course.
+This class cannot be instantiated directly.
 
-C. How to Run
-Save all files in the same directory
+Subclasses
 
-Compile the program:
+Car
 
-bash
+Fields: doors, fuelType
+
+Motorcycle
+
+Field: hasSidecar
+
+Truck
+
+Fields: capacity, numAxles
+
+Each subclass overrides the engine methods to provide its own behavior.
+
+Overridden Methods
+
+All subclasses override:
+
+startEngine()
+
+stopEngine()
+
+Access Modifiers
+
+private is used for fields to protect data
+
+public methods provide controlled access
+
+C. Instructions to Compile and Run
+
+Compile and run the program using:
+
 javac *.java
-Run the main program:
-
-bash
 java Main
-E. Reflection
-This project taught me how to design multiple interacting classes in Java. I learned to create proper encapsulation with private fields and public interfaces, 
-which protects data integrity. The main challenge was managing the relationship between Student and Course classes - deciding whether to use composition or association.
 
-Object-oriented programming proved valuable because it models real-world entities naturally. Encapsulation is particularly useful as it prevents invalid data (like GPA outside 0.0-4.0 range) 
-from being set directly. This project shows how OOP makes code more organized, maintainable, and scalable compared to procedural approaches.
+D. Reflection Section
+
+Inheritance made the code simpler by placing common logic in the Vehicle class. This reduced duplication and made the program easier to maintain.
+
+Method overriding allowed each vehicle to have its own engine behavior while using the same method names. This demonstrates polymorphism in the program.
+
+The main challenge was choosing the correct access modifiers. Using private fields improved encapsulation, while public methods allowed safe access from other classes.
